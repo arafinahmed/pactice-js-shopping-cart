@@ -1,3 +1,4 @@
+totalSubtotal();
 let myUpdateDictionary = [
     {
         btn: 'iphone-plus',
@@ -66,5 +67,23 @@ function updatePrice(countID, priceID, a, singlePrice){
     document.getElementById(countID).value = count;
     const iphonePrice = count*singlePrice;
     document.getElementById(priceID).innerText = iphonePrice;
+    totalSubtotal();
 }
 
+
+//total and sub total
+function totalSubtotal(){
+    console.log(100);
+    let subTotal = 0;
+    let total = 0;
+    let tax = 0;
+    const iphonePrice = parseFloat(document.getElementById('iphone-price').innerText);
+    const casePrice = parseFloat(document.getElementById('case-price').innerText);
+    subTotal = iphonePrice + casePrice;
+    tax = Math.floor(subTotal*.15);
+    total = tax + subTotal;
+    document.getElementById('subtotal').innerText = subTotal;
+    document.getElementById('tax').innerText = tax;
+    document.getElementById('total').innerText = total;
+
+}
