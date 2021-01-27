@@ -27,14 +27,31 @@ let myUpdateDictionary = [
         a: -1,
         singlePrice: 59
     },
-]
+];
+let inputEvent = ['iphone-count', 'case-count'];
+
 for (let i = 0; i < myUpdateDictionary.length; i++) {
     const element = myUpdateDictionary[i];
     const Btn = document.getElementById(element.btn);
     Btn.addEventListener('click', function(){
         updatePrice(element.countID, element.priceID, element.a, element.singlePrice);
-    });
-    
+    });    
+}
+
+//this is for manual input
+for (let i = 0; i < inputEvent.length; i++) {
+    const element = inputEvent[i];
+    const iphoneCount = document.getElementById(element);
+    if(element=='iphone-count'){
+        iphoneCount.addEventListener('input', function(e){
+            updatePrice('iphone-count','iphone-price', 0, 1219);
+        });
+    }
+    else if(element=='case-count'){
+        iphoneCount.addEventListener('input', function(e){
+            updatePrice('case-count','case-price', 0, 59);
+        });
+    }
 }
 
 //update price function // countID, priceID, a, singlePrice
@@ -43,7 +60,11 @@ function updatePrice(countID, priceID, a, singlePrice){
     if(count<0){
         count = 0;
     }
+    else if(!Number.isInteger(count)){
+        count = 0;
+    }
     document.getElementById(countID).value = count;
     const iphonePrice = count*singlePrice;
     document.getElementById(priceID).innerText = iphonePrice;
 }
+
