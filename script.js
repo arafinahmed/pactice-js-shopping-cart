@@ -32,24 +32,10 @@ for (let i = 0; i < myUpdateDictionary.length; i++) {
     const element = myUpdateDictionary[i];
     const Btn = document.getElementById(element.btn);
     Btn.addEventListener('click', function(){
-        updatePrice(myUpdateDictionary[0]);
+        updatePrice(element.countID, element.priceID, element.a, element.singlePrice);
     });
     
 }
-//iphone price plus
-// const iphonePlusBtn = document.getElementById('iphone-plus');
-// iphonePlusBtn.addEventListener('click', function(){
-//     updatePrice(myUpdateDictionary[0]);
-// });
-
-// //iphone price minus
-// const iphoneMinusBtn = document.getElementById('iphone-minus');
-// iphoneMinusBtn.addEventListener('click', function(){
-//     updatePrice(myUpdateDictionary[1]);
-// });
-
-//case price plus
-
 
 //update price function // countID, priceID, a, singlePrice
 function updatePrice(countID, priceID, a, singlePrice){
