@@ -8,8 +8,20 @@ function handleProductChange(product, counter, price){
     productInput.value = productNewCount;
     const productTotal = productNewCount * price;
     document.getElementById(product+'-total').innerText = '$'+productTotal;
+    calculateTotal();
 }
 
+
+function calculateTotal(){
+    const phoneCount = parseInt(document.getElementById('phone-count').value)
+    const caseCount = parseInt(document.getElementById('case-count').value)
+    const subTotal = phoneCount*1219 + caseCount*59;
+    const tax = Math.floor(subTotal*0.1);
+    const total = Math.floor( subTotal*1.1);
+    document.getElementById('subtotal').innerText = "$"+subTotal;
+    document.getElementById('tax').innerText = '$'+tax;
+    document.getElementById('total').innerText = '$'+total;
+}
 
 // function handleProductChange(counter){
 //     const caseInput = document.getElementById('case-count');
