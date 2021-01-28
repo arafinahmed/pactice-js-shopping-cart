@@ -1,13 +1,13 @@
 function handleProductChange(product, counter, price){
-    const caseInput = document.getElementById(product+'-count');
-    const caseCount = parseInt(caseInput.value);
-    let caseNewCount = caseCount + counter;
-    if(caseNewCount<0){
-        caseNewCount = 0;
+    const productInput = document.getElementById(product+'-count');
+    const productCount = parseInt(productInput.value);
+    let productNewCount = productCount + counter;
+    if(productNewCount<0){
+        productNewCount = 0;
     }
-    caseInput.value = caseNewCount;
-    const caseTotal = caseNewCount * price;
-    document.getElementById(product+'-total').innerText = '$'+caseTotal;
+    productInput.value = productNewCount;
+    const productTotal = productNewCount * price;
+    document.getElementById(product+'-total').innerText = '$'+productTotal;
 }
 
 
